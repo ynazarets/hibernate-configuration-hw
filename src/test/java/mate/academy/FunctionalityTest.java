@@ -129,7 +129,6 @@ public class FunctionalityTest extends AbstractTest {
             Mockito.when(mockedSession.beginTransaction()).thenReturn(mockedTransaction);
             mockSessionFactory(mockedSessionFactory);
             Object testMovie = getTestMovie();
-            Mockito.when(mockedSession.save(testMovie)).thenThrow(new RuntimeException());
             doThrow(new RuntimeException()).when(mockedSession).persist(testMovie);
             Class dataProcessingExceptionClass = getClass("DataProcessingException");
 
